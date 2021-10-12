@@ -1,3 +1,3 @@
-# Amazon-Reviews-Analysis
+# Telco-Customer-Churn-Prediction
 
-Data Source: https://www.kaggle.com/daishinkan002/men-women-shoes-reviews
+Data Source: https://www.kaggle.com/blastchar/telco-customer-churn
