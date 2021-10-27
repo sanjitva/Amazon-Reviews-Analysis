@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td { border: 1px solid black; 
+		border-collapse:collapse;}
+body {
+    height: 100vh;
+    font-family: arial;
+  }
+</style>
+</head>
+<body bgcolor='NavajoWhite'>
+
+<h1>Identifying Customers who are likely to Churn</h1>
+
+<p>This project looks at a Telecom Company's customer data and identifies if a customer is about to churn. This can help companies save millions of dollars in lost revenue.</p>
+
+<br>
+<br>
+
+<p>Is the Customer a Male or Female?:</p>
+<form>
+	<input type="radio" id="male" name="gender" value="Male">
+	<label for="male">Male</label><br>
+	<input type="radio" id="female" name="gender" value="Female">
+	<label for="female">Female</label><br>
+</form>
+
+<br>
+<br>
+
+<p>Is the Customer a Senior Citizen?:</p>
+<form>
+	<input type="radio" id="senior_y" name="senior" value="Yes">
+	<label for="senior_y">Yes</label><br>
+	<input type="radio" id="senior_n" name="senior" value="No">
+	<label for="senior_n">No</label><br>
+</form>
+
+<br>
+<br>
+
+<p>Does the Customer have a partner?:</p>
+<form>
+	<input type="radio" id="partner_y" name="partner" value="Yes">
+	<label for="partner_y">Yes</label><br>
+	<input type="radio" id="partner_n" name="partner" value="No">
+	<label for="partner_n">No</label><br>
+</form>
+
+<br>
+<br>
+
+<p>Is the Customer have dependents?:</p>
+<form>
+	<input type="radio" id="dep_y" name="dependent" value="Yes">
+	<label for="dep_y">Yes</label><br>
+	<input type="radio" id="dep_n" name="dependent" value="No">
+	<label for="dep_n">No</label><br>
+</form>
+
+<br>
+<br>
+
+<p>Please Enter the Number of Months the Customer has been subscribed below:</p>
+<form>
+	<label for="n_months">Number of Months:</label><br>
+	<input type="text" id="n_months" name="n_months">
+</form>
+
+<br>
+<br>
+
+<p>Is the Customer subscribed to Phone Service?</p>
+<form>
+	<input type="radio" id="phone_y" name="phone" value="Yes">
+	<label for="phone_y">Yes</label><br>
+	<input type="radio" id="phone_n" name="phone" value="No">
+	<label for="phone_n">No</label><br>
+</form>
+
+<br>
+<br>
+
+<p>Does the Customer have Multiple Lines?:</p>
+<form>
+	<input type="radio" id="multiline_y" name="multiline" value="Yes">
+	<label for="multiline_y">Yes</label><br>
+	<input type="radio" id="" name="multiline" value="No">
+	<label for="multiline_n">No</label><br>
+</form>
+
+<br>
+<br>
+
+<p>Does the Customer have Internet Service?:</p>
+<form>
+	<input type="radio" id="internet_y" name="internet" value="Yes">
+	<label for="internet_y">Yes</label><br>
+	<input type="radio" id="" name="internet" value="No">
+	<label for="internet_n">No</label><br>
+</form>
+
+<br>
+<br>
+
+<p>Does the Customer have Online Security?:</p>
+<form>
+	<input type="radio" id="security_y" name="security" value="Yes">
+	<label for="security_y">Yes</label><br>
+	<input type="radio" id="security_n" name="security" value="No">
+	<label for="security_n">No</label><br>
+</form>
+
+<br>
+<br>
+
+<p>Does the Customer have Online Backup?:</p>
+<form>
+	<input type="radio" id="backup_y" name="backup" value="Yes">
+	<label for="backup_y">Yes</label><br>
+	<input type="radio" id="backup_n" name="backup" value="No">
+	<label for="backup_n">No</label><br>
+</form>
+
+<br>
+<br>
+
+<p>Does the Customer have Device Protection?:</p>
+<form>
+	<input type="radio" id="protect_y" name="protection" value="Yes">
+	<label for="protect_y">Yes</label><br>
+	<input type="radio" id="protect_n" name="protection" value="No">
+	<label for="protect_n">No</label><br>
+</form>
+
+<br>
+<br>
+
+<p>Is the Customer subscribed to Tech Support?:</p>
+<form>
+	<input type="radio" id="tech_y" name="tech_support" value="Yes">
+	<label for="tech_y">Yes</label><br>
+	<input type="radio" id="tech_n" name="tech_support" value="No">
+	<label for="tech_n">No</label><br>
+</form>
+
+<br>
+<br>
+
+<p>Is the Customer subscribed to Streaming TV?</p>
+<form>
+	<input type="radio" id="tv_y" name="stream_tv" value="Yes">
+	<label for="tv_y">Yes</label><br>
+	<input type="radio" id="tv_n" name="stream_tv" value="No">
+	<label for="tv_n">No</label><br>
+</form>
+
+<br>
+<br>
+
+<p>Is the Customer subscribed to Streaming Movies?</p>
+<form>
+	<input type="radio" id="movie_y" name="stream_movies" value="Yes">
+	<label for="movie_y">Yes</label><br>
+	<input type="radio" id="movie_n" name="stream_movies" value="No">
+	<label for="movie_n">No</label><br>
+</form>
+
+<br>
+<br>
+
+<p>Is the Customer on a Month-to-Month Contract?</p>
+<form>
+	<input type="radio" id="monthly_y" name="monthly" value="Yes">
+	<label for="monthly_y">Yes</label><br>
+	<input type="radio" id="monthly_n" name="monthly" value="No">
+	<label for="monthly_n">No</label><br>
+</form>
+
+<br>
+<br>
+
+<p>Is the Customer subscribed to Paperless Billing?</p>
+<form>
+	<input type="radio" id="paper_y" name="paperless_billing" value="Yes">
+	<label for="paper_y">Yes</label><br>
+	<input type="radio" id="paper_n" name="paperless_billing" value="No">
+	<label for="paper_n">No</label><br>
+</form>
+
+<br>
+<br>
+
+<label for="payment_method">What payment method does the Customer use?:</label>
+<br>
+<br>
+<select id="payment_method" name="payment_method">
+  <option value="mailed_check">Mailed Check</option>
+  <option value="electronic_check">Electronic Check</option>
+  <option value="credit_card">Credit Card (automatic)</option>
+  <option value="bank_transfer">Bank Transfer (automatic)</option>
+</select>
+
+<br>
+<br>
+
+<p>Please Enter the Monthly Fee for the Customer below:</p>
+<form>
+	<label for="monthly_charge">Enter Amount:</label><br>
+	<input type="text" id="monthly_charge" name="monthly_charge">
+</form>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<table style="width:35%">
+
+	<tr>
+		<th bgcolor='lightblue'> Model Name </th>
+		<th bgcolor='lightblue'> Model Score </th>
+	</tr>
+	<tr bgcolor='white'>
+		<td> Logistic Regression </td>
+		<td> 0.826222 </td>
+	</tr>
+	<tr bgcolor='white'>
+		<td> K-Nearest Neighbors </td>
+		<td> 0.909232 </td>
+	</tr>
+	<tr bgcolor='white'>
+		<td> Decision Tree </td>
+		<td> 0.777347 </td>
+	</tr>
+	<tr bgcolor='white'>
+		<td> Random Forest </td>
+		<td> 0.845617 </td>
+	</tr>
+	<tr bgcolor='white'>
+		<td> XGBoost </td>
+		<td> 0.848720 </td>
+	</tr>
+	<tr bgcolor='white'>
+		<td> Support Vector Machines </td>
+		<td> 0.865012 </td>
+	</tr>
+</table>	
+
+
+
+
+</body>
+</html>
