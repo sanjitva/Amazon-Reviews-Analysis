@@ -7,7 +7,7 @@ model = pickle.load(open('knn_model.pkl', 'rb'))
 
 @app.route('/')
 def home():
-    return render_template('churn_ui.html')
+    return render_template('index.html')
 
 @app.route('/predict',methods=['POST'])
 def predict():
