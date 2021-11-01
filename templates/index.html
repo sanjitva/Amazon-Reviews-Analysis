@@ -1,119 +1,160 @@
-<!DOCTYPE html>  
-<html>  
-<head>  
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
 
-<style>  
-body{  
-  font-family: Calibri, Helvetica, sans-serif;  
-  background-color: pink;  
-}  
-.container {  
-    padding: 50px;  
-  background-color: lightblue;  
-}  
-  
-input[type=text], input[type=password], textarea {  
-  width: 40%;  
-  padding: 15px;  
-  margin: 5px 0 22px 0;  
-  display: inline-block;  
-  border: none;  
-  background: #f1f1f1;  
-}  
-input[type=text]:focus, input[type=password]:focus {  
-  background-color: orange;  
-  outline: none;  
-}  
- div {  
-            padding: 10px 0;  
-         }  
-hr {  
-  border: 1px solid #f1f1f1;  
-  margin-bottom: 25px;  
-}  
-.registerbtn {  
-  background-color: #4CAF50;  
-  color: white;  
-  padding: 16px 20px;  
-  margin: 8px 0;  
-  border: none;  
-  cursor: pointer;  
-  width: 100%;  
-  opacity: 0.9;  
-}  
-.registerbtn:hover {  
-  opacity: 1;  
-}  
-</style>  
-  
-</head> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
- 
-<body>  
-<form>  
-<div class="container">  
-<center>  <h1> Predicting Customer Churn </h1> </center>  
-<hr>  
-<label> What is the Gender of the customer? </label><br>   
-<input type="text" name="gender" placeholder= "Please Enter 1 for Male and 0 for Female" size="15" required /><br><br>
+<body>
 
-<label> Is the customer a Senior Citizen? </label><br>   
-<input type="text" name="senior" placeholder= "Please Enter 1 for Yes and 0 for No" size="15" required /><br><br> 
+    <div style="color:blue">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h2>Predicting if the Customer will Churn</h2>
+    
+            <h3>What is the Gender of the customer?</h3><input id="first" name="gender" placeholder= "Male:1, Female:0" size="25"required="required">
+            <h3>Is the customer a Senior Citizen? </h3><input id="second" name="senior" placeholder= "Yes:1, No:0" size="25" required="required">
+	    <h3>Does the customer have a Partner? </h3><input id="third" name="partner" placeholder= "Yes:1, No:0" size="25" required="required">
+            <h3>Does the customer have any Dependents? </h3><input id="fourth" name="dependent" placeholder= "Yes:1, No:0" size="25" required="required">
+            <h3>How many months has the customer been subscribed to the company's services? </h3><input id="fifth" name="months" placeholder= "Enter Number of Months" size="25" required="required">
+            <h3>Is the customer subscribed for Phone Service? </h3><input id="sixth" name="phone" placeholder= "Yes:1, No:0" size="25" required="required">
+            <h3>Is the customer subscribed for Multiple Lines? </h3><input id="seventh" name="multiple_lines" placeholder= "Yes:1, No:0" size="25" required="required">
+	    <h3>Is the customer subscribed for Internet Service?  </h3><input id="eighth" name="internet" placeholder= "Yes:1, No:0" size="25" required="required">
+            <h3>Is the customer subscribed for Online Security?  </h3><input id="ninth" name="security" placeholder= "Yes:1, No:0" size="25" required="required">
+            <h3>Is the customer subscribed for Online Backup?  </h3><input id="tenth" name="backup" placeholder= "Yes:1, No:0" size="25" required="required">
+            <h3>Is the customer subscribed for Device Protection?  </h3><input id="eleventh" name="protection" placeholder= "Yes:1, No:0" size="25" required="required">
+            <h3>Is the customer subscribed for Tech Support?  </h3><input id="twelfth" name="support" placeholder= "Yes:1, No:0" size="25" required="required">
+	    <h3>Is the customer subscribed for Streaming TV? </h3><input id="thirteenth" name="tv" placeholder= "Yes:1, No:0" size="25" required="required">
+            <h3>Is the Customer subscribed for Streaming Movies?  </h3><input id="fourteenth" name="movies" placeholder= "Yes:1, No:0" size="25" required="required">
+            <h3>Did the Customer opt for Paperless Billing?  </h3><input id="fifteenth" name="paperless" placeholder= "Yes:1, No:0" size="25" required="required">
+            <h3>What is the Customer's Payment Method?</h3><input id="sixteenth" name="payment_method" placeholder= "Electronic Check : 0; Mailed Check: 1; Bank Transfer: 2; Credit Card: 3" size="55" required="required">
+            <h3>How much does the Customer pay per Month?  </h3><input id="seventeenth" name="monthly_charge" placeholder= "Enter Amount" size="25" required="required">
+	    <h3>Is the Customer on a Long-Term Contract  </h3><input id="eighteenth" name="loyalty" placeholder= "Yes:1, No:0" size="25" required="required">
 
-<label> Does the customer have a Partner? </label><br>   
-<input type="text" name="partner" placeholder= "Please Enter 1 for Yes and 0 for No" size="15" required /><br><br>  
+            <br><br><button id="sub" type="submit ">Predict</button>
+            <br>
 
-<label> Does the Customer have any Dependents? </label><br>   
-<input type="text" name="dependent" placeholder= "Please Enter 1 for Yes and 0 for No" size="15" required /><br><br> 
-  
-<label> How many months has the customer been subscribed to the company's services? </label><br>   
-<input type="text" name="months" placeholder= "Please Enter the Number of Months" size="15" required /><br><br> 
 
-<label> Is the customer subscribed for Phone Service? </label><br>   
-<input type="text" name="phone" placeholder= "Please Enter 1 for Yes and 0 for No" size="15" required /><br><br> 
 
-<label> Is the customer subscribed for Multiple Lines? </label><br>   
-<input type="text" name="multiple_lines" placeholder= "Please Enter 1 for Yes and 0 for No" size="15" required /><br><br> 
 
-<label> Is the customer subscribed for Internet Service? </label><br>   
-<input type="text" name="internet" placeholder= "Please Enter 1 for Yes and 0 for No" size="15" required /><br><br> 
+        </form>
 
-<label> Is the customer subscribed for Online Security? </label><br>   
-<input type="text" name="security" placeholder= "Please Enter 1 for Yes and 0 for No" size="15" required /><br><br> 
 
-<label> Is the customer subscribed for Online Backup? </label><br>   
-<input type="text" name="backup" placeholder= "Please Enter 1 for Yes and 0 for No" size="15" required /><br><br>
+        <br><br><h3>{{ prediction_text }}<h3>
+    </div>
 
-<label> Is the customer subscribed for Device Protection? </label><br>   
-<input type="text" name="protection" placeholder= "Please Enter 1 for Yes and 0 for No" size="15" required /><br><br> 
 
-<label> Is the customer subscribed for Tech Support? </label><br>   
-<input type="text" name="support" placeholder= "Please Enter 1 for Yes and 0 for No" size="15" required /><br><br>
 
-<label> Is the customer subscribed for Streaming TV? </label><br>   
-<input type="text" name="tv" placeholder= "Please Enter 1 for Yes and 0 for No" size="15" required /><br><br>
 
-<label> Is the Customer subscribed for Streaming Movies? </label><br>   
-<input type="text" name="movies" placeholder= "Please Enter 1 for Yes and 0 for No" size="15" required /><br><br>
+    <style>
+        body {
+            background-color: lightslategray;
+            text-align: center;
+            padding: 0px;
+        }
+        
+        #research {
+            font-size: 18px;
+            width: 100px;
+            height: 23px;
+            top: 23px;
+        }
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+        }
+        
+        #fuel {
+            width: 83px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #fuel:hover {
+            background-color: coral;
+        }
+        
+        #research {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #research:hover {
+            background-color: coral;
+        }
+        
+        #resea {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #resea:hover {
+            background-color: coral;
+        }
+        
+        #sub {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #sub:hover {
+            background-color: darkcyan;
+        }
+        
+        #first {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #second {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #third {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #fourth {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</body>
 
-<label> Did the Customer opt for Paperless Billing? </label><br>   
-<input type="text" name="paperless" placeholder= "Please Enter 1 for Yes and 0 for No" size="15" required /><br><br> 
-
-<label> What is the Customer's Payment Method? </label><br>
-
-<label> (Electronic Check : 0; Mailed Check: 1; Bank Transfer: 2; Credit Card: 3)<br>
-<input type="text" name="payment_method" placeholder= "Please Enter the Appropriate Value" size="15" required /><br><br> 
-
-<label> How much does the Customer pay per Month? </label><br>   
-<input type="text" name="monthly_charge" placeholder= "Please Enter Dollar Amount of Monthly Fees" size="15" required /><br><br>   
-
-<label> Is the Customer on a Long-Term Contract </label><br>   
-<input type="text" name="loyalty" placeholder= "Please Enter 1 for Yes and 0 for No" size="15" required /><br><br> 
-
-<button type="submit" class="predictbtn">Predict</button>  
-
-  
-</form>  
-</body>  
-</html> 
+</html>
